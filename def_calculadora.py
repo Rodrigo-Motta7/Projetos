@@ -13,19 +13,16 @@ def operacao():
         while verdade:
             cont = input('Deseja fazer alguma alteração? "s" para sim e "n" para não: ')
             if cont not in ("s", "n"):
-                print("Erro: Alternativa invalida!")
+                print("Erro: Alternativa inválida!")
                 continue
-
             if cont == "s":
                 break
-
             if cont =="n":
                 while verdade:
                     print("----------------------------------------")
                     print(f"Escolha qual operação será feita entre {a} e {b}.")
-                    nome_funcao = input("Digite quais dessas operações será utilizada. (soma, subtração, multiplicação ou divisão): ")
-                    print("----------------------------------------")
-                    
+                    nome_funcao = input("Digite qual dessas operações será utilizada. (soma, subtração, multiplicação ou divisão): ")
+                    print("----------------------------------------")                
                     operacoes = {
                         "soma": soma,
                         "subtração": subtração,
@@ -60,5 +57,6 @@ def multiplicação(a,b):
 
 def divisão(a,b):
     return a / b
+
 
 operacao()
