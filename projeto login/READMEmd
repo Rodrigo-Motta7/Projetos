@@ -1,0 +1,1 @@
+Uma tela de login e cadastro utilizando a biblioteca CustomTkinter, nele você inicia na tela de login e é possível clicar no botâo cadastro para ir para a janela cadastro, no momento não está integrado a um banco de dados mas pretendo no futúro.
