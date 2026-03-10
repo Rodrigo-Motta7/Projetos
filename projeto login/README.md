@@ -119,5 +119,4 @@ Algumas melhorias que podem ser implementadas:
 * Sistema de autenticação real
 * Interface mais completa
 * 📦 **estrutura profissional de projeto**
-
-Seu README pode ficar **bem mais bonito para recrutadores no GitHub**.
+* 
