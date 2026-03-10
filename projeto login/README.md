@@ -119,4 +119,3 @@ Algumas melhorias que podem ser implementadas:
 * Sistema de autenticação real
 * Interface mais completa
 * 📦 **estrutura profissional de projeto**
-* 
