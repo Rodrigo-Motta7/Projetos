@@ -1,6 +1,3 @@
-Aqui está um **README.md** que você pode usar no seu GitHub para esse projeto:
-
----
 
 # Sistema de Login com CustomTkinter
 
