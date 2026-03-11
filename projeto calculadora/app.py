@@ -18,6 +18,10 @@ def adicionar(valor):
 
 def calcular():
     global conta
+    
+    if conta.count('(') != conta.count(')'):
+        resultado.configure(text='Erro: parênteses')
+        return
     try:
         conta = str(eval(conta))
         resultado.configure(text=conta)
@@ -31,7 +35,11 @@ resultado.pack(pady=10)
 frame = ctk.CTkFrame(app)
 frame.pack(pady=10)
 
-clear_button = ctk.CTkButton(frame,text='limpar', width=40, command=lambda:limpar())
+paren1_button = ctk.CTkButton(frame, text='(', width=40, command=lambda:adicionar('('))
+paren1_button.grid(row=0, column=0, pady=5)
+paren2_button = ctk.CTkButton(frame, text=')', width=40, command=lambda:adicionar(')'))
+paren2_button.grid(row=0, column=1, pady=5)
+clear_button = ctk.CTkButton(frame,text='limpar',width=40, command=lambda:limpar())
 clear_button.grid(row=0, column=2, pady=5)
 zero_button = ctk.CTkButton(frame,text='0',width=40,command=lambda:adicionar(0))
 zero_button.grid(row=1, column=0, padx=5)
