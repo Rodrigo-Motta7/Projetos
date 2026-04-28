@@ -70,4 +70,3 @@ def abrir_cadastro(login, limpar):
     voltar = ctk.CTkButton(frame2,width=100, text='Voltar', command=voltar_tela1)
     voltar.grid(row=0, column=1,padx=5)
 
-
