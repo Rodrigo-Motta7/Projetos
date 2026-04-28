@@ -1,16 +1,32 @@
 import customtkinter as ctk
+import sqlite3
+import bcrypt
 from cadastro import abrir_cadastro
 
 ctk.set_default_color_theme("dark-blue")
 
+conexao = sqlite3.connect("banco.db")
+cursor = conexao.cursor()
+
+cursor.execute(""" """)
+conexao.commit()
 
 def validar_login():
     usuario = entry_usuario.get()
     senha = entry_senha.get()
-    if usuario == 'Rodrigo' and senha == '1234':
-        resultado_login.configure(text='Login feito com sucesso!',text_color='green')
+
+    login = cursor.execute("""SELECT * FROM login_usuario WHERE nome = ?""", 
+                           (usuario,)).fetchone()
+    
+    if login:
+        hash_senha = login[3]
+        if bcrypt.checkpw(senha.encode('utf-8'), hash_senha):
+            resultado_login.configure(text='Login feito com sucesso!',text_color='green')
+        else:
+            resultado_login.configure(text='Senha incorreta!', text_color='red')
     else:
-        resultado_login.configure(text='Falha no login!', text_color='red')
+        resultado_login.configure(text='Usuário não encontrado!', text_color='red')
+
 def limpar():
     entry_usuario.delete(0,'end')
     entry_senha.delete(0,'end')
