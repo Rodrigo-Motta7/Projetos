@@ -1,5 +1,9 @@
 import customtkinter as ctk
+import sqlite3
+import bcrypt
 
+conexao = sqlite3.connect("banco.db")
+cursor = conexao.cursor()
 
 def abrir_cadastro(login, limpar):
    
@@ -17,6 +21,13 @@ def abrir_cadastro(login, limpar):
         new_email = entry_new_email.get()
         new_senha = entry_new_senha.get()
         if new_usu and new_email and new_senha:
+            senha_bytes = new_senha.encode('utf-8')
+            hash_senha = bcrypt.hashpw(senha_bytes, bcrypt.gensalt())
+
+            conexao.execute("""INSERT INTO login_usuario
+                            (nome, email, senha) VALUES
+                            (?, ?, ?)""", (new_usu, new_email, hash_senha))
+            conexao.commit()
             resultado_cadastro.configure(text='Cadastro Concluído', text_color='green')
             tela2.after(1000,voltar_tela1)
         
